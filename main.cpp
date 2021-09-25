@@ -1,5 +1,6 @@
-#include <iostream>
-
-int main() {
-  std::cout << "Hello World!\n";
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+  cout<<"Hello world"<<endl;
+  return 0;
 }
