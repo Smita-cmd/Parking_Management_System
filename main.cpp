@@ -28,11 +28,40 @@ class Create_parking_lot{
 public:
   Create_parking_lot(int slots){
     //initialising the parking slots
-    
+    for(int i=1;i<=slots;i++){
+       available_parking_slot.insert(to_string(i));
+     }
+
+     cout<<"Created parking of "<<slots<<" slots"<<endl;
   }
 
   void Park(vector<string> NewCar){
     //parking the vehicles
+    if(available_parking_slot.size()==0){
+      cout<<"Sorry! No parking slots available here";
+      cout<<endl;
+    }
+    else{
+      //assigning the slot no;
+      string slot= *available_parking_slot.begin();
+      //erasing the retrieved slot as it is occupied now
+      available_parking_slot.erase(available_parking_slot.begin());
+
+      string regNo=NewCar[1];
+      string age=NewCar[3];
+      
+      slotNo_to_RegAge[slot].push_back(regNo);
+      slotNo_to_RegAge[slot].push_back(age);
+
+      age_to_regNo[age].push_back(regNo);
+
+      regNo_to_slotNo[regNo]=slot;
+
+      driverAge_to_slotNo[age].push_back(slot);
+
+      cout<<"Car with vehicle registration number "<<'"'<<regNo<<'"'<<" has been parked at slot number "<<slot<<endl;
+
+    }
     
   }
 
@@ -56,6 +85,7 @@ public:
   void Slot_numbers_for_driver_of_age(vector<string> Age){
     //  Slot Number(Comma-separated)
     //finding slot numbers from age
+    
       
   }
 
