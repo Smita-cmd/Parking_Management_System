@@ -126,14 +126,33 @@ public:
   void Slot_number_for_car_with_number(vector<string> reg){
     //finding slot number from registration number
     //some logic to implement this.
-    
+
+    string regNo=reg[1];  
+
+    if(regNo_to_slotNo.find(regNo)!=regNo_to_slotNo.end()){
+       string slot=regNo_to_slotNo[regNo];
+       cout<<slot<<endl;
+    }
+    else{
+      cout<<"Slot does not exist for this vehicle"<<endl;
+    }
   }
 
   void Slot_numbers_for_driver_of_age(vector<string> Age){
     //  Slot Number(Comma-separated)
     //finding slot numbers from age
-    
-      
+     string age=Age[1];
+
+      if(driverAge_to_slotNo.find(age)!=driverAge_to_slotNo.end()){
+        vector<string> slotNos=driverAge_to_slotNo[age];
+        for(int i=0;i<slotNos.size()-1;i++){
+            cout<<slotNos[i]<<",";
+          }
+        cout<<slotNos[slotNos.size()-1]<<endl;
+      }
+      else{
+        cout<<"No such slot exists for this age"<<endl;
+      }
   }
 
 };
