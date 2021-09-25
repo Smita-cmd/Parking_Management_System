@@ -67,7 +67,44 @@ public:
 
   void Leave(vector<string> SlotNo){
     //algorithm when vehicle vacates the parking slot
+    //some logic for emptyig the slot
+    //retrive the slot no
+    string slotNo=SlotNo[1];
+    //removing its existence from all 3 data list
+    //some code
+    if(slotNo_to_RegAge.find(slotNo)!=slotNo_to_RegAge.end()){
+      string regNo=slotNo_to_RegAge[slotNo][0];
+      string age=slotNo_to_RegAge[slotNo][1];
+       
+      //deleting the regNo from data1
+
+      for (auto it = age_to_regNo[age].begin(); it != age_to_regNo[age].end(); ++it)
+        {
+          if(*it!=regNo){
+              age_to_regNo[age].erase(it);
+              break;
+          }
+        }
+      
+      //deleting the regNo from data2
+        regNo_to_slotNo.erase(regNo);
+
+      //deleting the regNo from data3
+       for (auto it = age_to_regNo[age].begin(); it != age_to_regNo[age].end(); ++it)
+        {
+          if(*it!=slotNo){
+              driverAge_to_slotNo[age].erase(it);
+              break;
+          }
+        }
+      //print the details of car which vacate the parking slot.
+        cout<<"Slot number "<<slotNo<<" vacated, the car with vehicle registration number "<<'"'<<regNo<<'"'<<" left the space, the driver of the car was of age "<<age<<endl;
+
+     //adding this slot to available slots
+      available_parking_slot.insert(slotNo);
+    }
    
+    
     
   
   }
