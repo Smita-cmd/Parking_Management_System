@@ -13,8 +13,57 @@ vector<string> listOfWords(string s)
     return words;
 }
 
+class Create_parking_lot{
+ 
+   set<string> available_parking_slot;
+   unordered_map<string,vector<string>> slotNo_to_RegAge;
+   
+   //data1
+   unordered_map<string,vector<string>> age_to_regNo;
+   //data2
+   unordered_map<string,string> regNo_to_slotNo;
+   //data3
+   unordered_map<string,vector<string>> driverAge_to_slotNo;
+
+public:
+  Create_parking_lot(int slots){
+    //initialising the parking slots
+    
+  }
+
+  void Park(vector<string> NewCar){
+    //parking the vehicles
+    
+  }
+
+  void Leave(vector<string> SlotNo){
+    //algorithm when vehicle vacates the parking slot
+   
+    
+  
+  }
+  void Vehicle_registration_number_for_driver_of_age(vector<string> Age){
+    //finding registration number of vehicles using age
+    
+   
+  }
+  void Slot_number_for_car_with_number(vector<string> reg){
+    //finding slot number from registration number
+    //some logic to implement this.
+    
+  }
+
+  void Slot_numbers_for_driver_of_age(vector<string> Age){
+    //  Slot Number(Comma-separated)
+    //finding slot numbers from age
+      
+  }
+
+};
+
+
 int main() {
-  // dont forget to use try catch to handle exception cases.
+  
   ifstream fin;
   fin.open("input.txt");
   string line;
