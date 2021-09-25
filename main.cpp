@@ -1,7 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
 //splitting each line into array of strings
+
 vector<string> listOfWords(string s)
 {
     stringstream ss(s);
@@ -17,16 +19,19 @@ class Create_parking_lot{
  
    set<string> available_parking_slot;
    unordered_map<string,vector<string>> slotNo_to_RegAge;
-   
+
    //data1
    unordered_map<string,vector<string>> age_to_regNo;
+
    //data2
    unordered_map<string,string> regNo_to_slotNo;
+
    //data3
    unordered_map<string,vector<string>> driverAge_to_slotNo;
 
 public:
   Create_parking_lot(int slots){
+
     //initialising the parking slots
     for(int i=1;i<=slots;i++){
        available_parking_slot.insert(to_string(i));
@@ -36,6 +41,7 @@ public:
   }
 
   void Park(vector<string> NewCar){
+
     //parking the vehicles
     if(available_parking_slot.size()==0){
       cout<<"Sorry! No parking slots available here";
@@ -62,7 +68,6 @@ public:
       cout<<"Car with vehicle registration number "<<'"'<<regNo<<'"'<<" has been parked at slot number "<<slot<<endl;
 
     }
-    
   }
 
   void Leave(vector<string> SlotNo){
@@ -103,16 +108,21 @@ public:
      //adding this slot to available slots
       available_parking_slot.insert(slotNo);
     }
-   
-    
-    
-  
   }
+
   void Vehicle_registration_number_for_driver_of_age(vector<string> Age){
+
     //finding registration number of vehicles using age
+    //extract age from string
+    string age=Age[1];
     
-   
+    //Print the regNo for particular query
+    for(auto regNo:age_to_regNo[age]){
+      cout<<regNo<<",";
+    }
+    cout<<endl;
   }
+
   void Slot_number_for_car_with_number(vector<string> reg){
     //finding slot number from registration number
     //some logic to implement this.
