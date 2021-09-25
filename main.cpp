@@ -1,5 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+//splitting each line into array of strings
+vector<string> listOfWords(string s)
+{
+    stringstream ss(s);
+    string word;
+    vector<string> words;
+    while (ss >> word) {
+        words.push_back(word);
+    }
+    return words;
+}
+
 int main() {
   // dont forget to use try catch to handle exception cases.
   ifstream fin;
